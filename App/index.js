@@ -2,7 +2,7 @@
 // Combined code from all files
 
 import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, TextInput, Button, ScrollView, Text, ActivityIndicator, View } from 'react-native';
+import { SafeAreaView, StyleSheet, TextInput, Button, ScrollView, Text, ActivityIndicator } from 'react-native';
 import axios from 'axios';
 
 const API_URL = 'http://apihub.p.appply.xyz:3300/chatgpt';
@@ -44,23 +44,30 @@ export default function App() {
                 placeholder="Enter Hero"
                 value={hero}
                 onChangeText={(text) => setHero(text)}
+                placeholderTextColor="#BFA2DB"
             />
             <TextInput
                 style={styles.input}
                 placeholder="Enter Villain"
                 value={villain}
                 onChangeText={(text) => setVillain(text)}
+                placeholderTextColor="#BFA2DB"
             />
             <TextInput
                 style={styles.input}
                 placeholder="Enter Plot"
                 value={plot}
                 onChangeText={(text) => setPlot(text)}
+                placeholderTextColor="#BFA2DB"
             />
-            <Button title="Generate Tale" onPress={fetchStory} />
+            <Button
+                title="Generate Tale"
+                onPress={fetchStory}
+                color="#6A0572"
+            />
 
             {loading ? (
-                <ActivityIndicator style={styles.loader} size="large" color="#0000ff" />
+                <ActivityIndicator style={styles.loader} size="large" color="#6A0572" />
             ) : (
                 <ScrollView style={styles.storyContainer}>
                     <Text style={styles.storyText}>{story}</Text>
@@ -75,21 +82,23 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 20,
         paddingHorizontal: 16,
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#1D1B27',
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20,
         textAlign: 'center',
+        color: '#E0B0FF',
     },
     input: {
         height: 40,
-        borderColor: '#73639F',
+        borderColor: '#6A0572',
         borderWidth: 1,
         borderRadius: 5,
         marginBottom: 10,
         paddingHorizontal: 8,
+        color: '#E0B0FF',
     },
     storyContainer: {
         marginTop: 20,
@@ -98,6 +107,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         textAlign: 'left',
+        color: '#E0B0FF',
     },
     loader: {
         marginTop: 20,
